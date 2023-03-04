@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linedraw</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="parameters.js" rel="script" type="application/javascript"></script>
+</head>
+<body>
+<header>
+    <h1 class="title">Linedraw</h1>
+    <nav>
+        <ul>
+            <li>Create</li>
+            <li>About</li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="main-container">
+        <!-- Holds parameters -->
+        <div id="left-column-container">
+            <h2>Parameters</h2>
+
+            <!-- Type selection -->
+            <input type="radio" id="linear" name="function_type" value="linear" checked>
+            <label for="linear">Linear</label>
+            <input type="radio" id="sin" name="function_type" value="sin">
+            <label for="sin">Sin</label>
+            <input type="radio" id="cos" name="function_type" value="cos">
+            <label for="cos">Cos</label>
+            <input type="radio" id="tan" name="function_type" value="tan">
+            <label for="tan">Tan</label>
+
+            <div class="parameter-box">
+                <h3>Canvas resolution</h3>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="r-color-range">Width</label>
+                    <input type="number" class="parameter-number" id="width-res" value="1920">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="g-color-range">Height</label>
+                    <input type="number" class="parameter-number" id="height-res" value="1080">
+                </div>
+            </div>
+
+            <div class="parameter-box">
+                <h3>Background color (RGB)</h3>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="r-color-range">Red</label>
+                    <input type="range" min="0" max="255" value="0" class="parameter-slider" id="r-background-range">
+                    <input type="number" class="parameter-number" id="r-background-number">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="g-color-range">Green</label>
+                    <input type="range" min="0" max="255" value="0" class="parameter-slider" id="g-background-range">
+                    <input type="number" class="parameter-number" id="g-background-number">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="b-color-range">Blue</label>
+                    <input type="range" min="0" max="255" value="0" class="parameter-slider" id="b-background-range">
+                    <input type="number" class="parameter-number" id="b-background-number">
+                </div>
+            </div>
+
+            <div class="parameter-box">
+                <h3>Color (RGB)</h3>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="r-color-range">Red</label>
+                    <input type="range" min="1" max="255" value="255" class="parameter-slider" id="r-color-range">
+                    <input type="number" class="parameter-number" id="r-color-number">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="g-color-range">Green</label>
+                    <input type="range" min="1" max="255" value="255" class="parameter-slider" id="g-color-range">
+                    <input type="number" class="parameter-number" id="g-color-number">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="b-color-range">Blue</label>
+                    <input type="range" min="1" max="255" value="255" class="parameter-slider" id="b-color-range">
+                    <input type="number" class="parameter-number" id="b-color-number">
+                </div>
+            </div>
+
+            <div class="parameter-box">
+                <h3>Coordinates</h3>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="r-color-range">Start X</label>
+                    <input type="range" min="0" max="1920" value="0" class="parameter-slider" id="x-start-range">
+                    <input type="number" class="parameter-number" id="x-start-number">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="g-color-range">Start Y</label>
+                    <input type="range" min="0" max="1080" value="0" class="parameter-slider" id="y-start-range">
+                    <input type="number" class="parameter-number" id="y-start-number">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="b-color-range">End X</label>
+                    <input type="range" min="0" max="1920" value="1920" class="parameter-slider" id="x-end-range">
+                    <input type="number" class="parameter-number" id="x-end-number">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="b-color-range">End Y</label>
+                    <input type="range" min="0" max="1080" value="1080" class="parameter-slider" id="y-end-range">
+                    <input type="number" class="parameter-number" id="y-end-number">
+                </div>
+            </div>
+
+            <div class="parameter-box">
+                <h3>Size</h3>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="width-range">Width</label>
+                    <input type="range" min="1" max="30" value="10" class="parameter-slider" id="width-range">
+                    <input type="number" class="parameter-number" id="width-number">
+                </div>
+            </div>
+
+            <div class="parameter-box">
+                <h3>Iterations</h3>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="i-count-range">Count</label>
+                    <input type="range" min="1" max="1000" value="1" class="parameter-slider" id="i-count-range">
+                    <input type="number" class="parameter-number" id="i-count-number">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="i-index-range">Index</label>
+                    <input type="range" min="-15" max="0" value="0" class="parameter-slider" id="i-index-range">
+                    <input type="number" class="parameter-number" id="i-index-number">
+                </div>
+            </div>
+
+            <div class="parameter-box">
+                <h3>Iteration offset</h3>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="r-color-range">Start X</label>
+                    <input type="range" min="-5" max="5" value="0" class="parameter-slider" id="x-offset-start-range" step="0.1">
+                    <input type="number" class="parameter-number-split" id="x-offset-start-number">
+                    <input type="number" class="parameter-number-split" id="x-offset-start-exponent" step="0.1" min="0.1" value="1">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="g-color-range">Start Y</label>
+                    <input type="range" min="-5" max="5" value="0" class="parameter-slider" id="y-offset-start-range" step="0.1">
+                    <input type="number" class="parameter-number-split" id="y-offset-start-number">
+                    <input type="number" class="parameter-number-split" id="y-offset-start-exponent" step="0.1" min="0.1" value="1">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="b-color-range">End X</label>
+                    <input type="range" min="-5" max="5" value="0" class="parameter-slider" id="x-offset-end-range" step="0.1">
+                    <input type="number" class="parameter-number-split" id="x-offset-end-number">
+                    <input type="number" class="parameter-number-split" id="x-offset-end-exponent" step="0.1" min="0.1" value="1">
+                </div>
+                <div class="parameter-input">
+                    <label class="parameter-label" for="b-color-range">End Y</label>
+                    <input type="range" min="-5" max="5" value="0" class="parameter-slider" id="y-offset-end-range" step="0.1">
+                    <input type="number" class="parameter-number-split" id="y-offset-end-number">
+                    <input type="number" class="parameter-number-split" id="y-offset-end-exponent" step="0.1" min="0.1" value="1">
+                </div>
+            </div>
+        </div>
+
+        <!-- Holds output visuals -->
+        <div id="center-column-container">
+            <canvas id="drawing-canvas">The browser doesn't support the canvas element</canvas>
+        </div>
+
+        <!-- Holds actions and other options -->
+        <div id="right-column-container">
+            <h2>Value sweep</h2>
+            <div class="parameter-box">
+                <h3>Iteration count</h3>
+                <div class="parameter-input">
+                    <label for="sweep-count-from">From</label>
+                    <input type="number" class="parameter-number" id="sweep-count-from" min="1" value="1">
+                </div>
+                <div class="parameter-input">
+                    <label for="sweep-count-to">To</label>
+                    <input type="number" class="parameter-number" id="sweep-count-to" min="1" value="500">
+                </div>
+            </div>
+            <div class="parameter-box">
+                <h3>Color</h3>
+                <label class="parameter-label" for="sweep-count-from">Count</label>
+                <div class="parameter-input">
+                    <label for="sweep-color-r-from">Red</label>
+                    <input type="number" class="parameter-number" id="sweep-color-r-from" min="1" max="255" value="1">
+                    <input type="number" class="parameter-number" id="sweep-color-r-to" min="1" max="255" value="255">
+                </div>
+                <div class="parameter-input">
+                    <label for="sweep-color-r-from">Green</label>
+                    <input type="number" class="parameter-number" id="sweep-color-g-from" min="1" max="255" value="1">
+                    <input type="number" class="parameter-number" id="sweep-color-g-to" min="1" max="255" value="255">
+                </div>
+                <div class="parameter-input">
+                    <label for="sweep-color-r-from">Blue</label>
+                    <input type="number" class="parameter-number" id="sweep-color-b-from" min="1" max="255" value="1">
+                    <input type="number" class="parameter-number" id="sweep-color-b-to" min="1" max="255" value="255">
+                </div>
+            </div>
+
+            <label for="sweep-time">Time per iteration (ms)</label>
+            <input type="number" class="parameter-number" id="sweep-time" value="1">
+            <button id="sweep-btn">Sweep</button>
+        </div>
+    </div>
+</main>
+<footer>
+<p>Linedraw (c) 2023</p>
+</footer>
+</body>
+</html>
