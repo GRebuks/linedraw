@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, SWEEP_TIME.value);
         }
     });
-
+    
     // SLIDER AND NUMBER CONTROLS //
     // Canvas resolution
     WIDTH_RES.addEventListener("input", () => {
@@ -372,6 +372,25 @@ document.addEventListener("DOMContentLoaded", () => {
     function UpdateCanvasResolution() {
         CANVAS.width = WIDTH_RES.value;
         CANVAS.height = HEIGHT_RES.value;
+        X_START_NUMBER.max = WIDTH_RES.value;
+        Y_START_NUMBER.max = HEIGHT_RES.value;
+        X_START_SLIDER.max = WIDTH_RES.value;
+        Y_START_SLIDER.max = HEIGHT_RES.value;
+
+        X_END_NUMBER.max = WIDTH_RES.value;
+        Y_END_NUMBER.max = HEIGHT_RES.value;
+        X_END_SLIDER.max = WIDTH_RES.value;
+        Y_END_SLIDER.max = HEIGHT_RES.value;
+
+        if (X_END_NUMBER.value > WIDTH_RES.value) {
+            X_END_NUMBER.value = WIDTH_RES.value;
+            X_END_SLIDER.value = WIDTH_RES.value;
+        }
+        if (Y_END_NUMBER.value > HEIGHT_RES.value) {
+            Y_END_NUMBER.value = HEIGHT_RES.value;
+            Y_END_SLIDER.value = HEIGHT_RES.value;
+        }
+        
         UpdateCanvas();
     }
 
