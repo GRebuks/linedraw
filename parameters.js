@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM Content loaded");
 
     // CANVAS ATTRIBUTES //
     let backgroundRed = 0;
@@ -14,8 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let xEndCoord = 0;
     let yStartCoord = 0;
     let yEndCoord = 0;
-
-    let width = 0;
 
     let count = 0;
     let index = 0;
@@ -191,19 +188,16 @@ document.addEventListener("DOMContentLoaded", () => {
             let blueStep = (parseFloat(COLOR_B_SWEEP_TO.value) - parseFloat(COLOR_B_SWEEP_FROM.value)) / totalSteps;
 
             let counter = COUNT_SWEEP_FROM.value;
-            console.log(redStep);
 
             sweepInterval = setInterval(() => {
                 UpdateCanvasExperimental(counter);
 
                 // Calculate how much should the color change every iteration based on iteration count
-
                 // Set base values for stroke color
                 RED_SLIDER.value = parseFloat(RED_NUMBER.value) + redStep;
                 GREEN_SLIDER.value = parseFloat(GREEN_NUMBER.value) + greenStep;
                 BLUE_SLIDER.value = parseFloat(BLUE_NUMBER.value) + blueStep;
 
-                console.log(RED_SLIDER.value)
                 RED_NUMBER.value = parseFloat(RED_NUMBER.value) + redStep;
                 GREEN_NUMBER.value = parseFloat(GREEN_NUMBER.value) + greenStep;
                 BLUE_NUMBER.value = parseFloat(BLUE_NUMBER.value) + blueStep;
@@ -382,14 +376,11 @@ document.addEventListener("DOMContentLoaded", () => {
         X_END_SLIDER.max = WIDTH_RES.value;
         Y_END_SLIDER.max = HEIGHT_RES.value;
 
-        if (X_END_NUMBER.value > WIDTH_RES.value) {
-            X_END_NUMBER.value = WIDTH_RES.value;
-            X_END_SLIDER.value = WIDTH_RES.value;
-        }
-        if (Y_END_NUMBER.value > HEIGHT_RES.value) {
-            Y_END_NUMBER.value = HEIGHT_RES.value;
-            Y_END_SLIDER.value = HEIGHT_RES.value;
-        }
+        if (parseFloat(X_END_NUMBER.value) > parseFloat(WIDTH_RES.value)) X_END_NUMBER.value = WIDTH_RES.value;
+        if (parseFloat(Y_END_NUMBER.value) > parseFloat(HEIGHT_RES.value)) Y_END_NUMBER.value = HEIGHT_RES.value;
+
+        X_END_SLIDER.value = X_END_NUMBER.value;
+        Y_END_SLIDER.value = Y_END_NUMBER.value;
         
         UpdateCanvas();
     }
